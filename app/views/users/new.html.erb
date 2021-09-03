@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Register</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" action="/users" method="post">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <span class="login100-form-title">Register</span>
+					
+					<% if flash[:errors] %>
+						<div class="mb-3">
+							<% flash[:errors].each do |error| %>
+								<b class="text-danger"><%= error %></b><br>
+							<% end %>
+						</div>
+					<% end %>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter first name">
+						<input class="input100" type="text" name="user[first_name]" id="first_name" placeholder="First Name">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter last name">
+						<input class="input100" type="text" name="user[last_name]" id="last_name" placeholder="Last Name">
+						<span class="focus-input100"></span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter email">
+						<input class="input100" type="text" name="user[email]" id="email" placeholder="Email">
+						<span class="focus-input100"></span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter password">
+						<input class="input100" type="password" name="user[password]" id="password" placeholder="Password">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Confirm Password">
+						<input class="input100" type="password" name="user[password_confirmation]" id="password_confirmation" placeholder="Confirm Password">
+						<span class="focus-input100"></span>
+					</div>
+
+					<br><div class="container-login100-form-btn">
+						<button class="login100-form-btn" id="register">
+							Sign Up
+						</button>
+					</div>
+
+					<div class="flex-col-c p-t-170 p-b-40 reg-margin-top">
+						<span class="txt1 p-b-9">
+							Already have an account?
+						</span>
+
+						<a href="<%= root_path %>" class="txt3">
+							Sign In
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

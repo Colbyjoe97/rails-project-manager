@@ -1,0 +1,82 @@
+.desc {
+    padding: 15px;
+    height: 250px;
+}
+.card {
+    border-radius: 20px;
+    font-family: "Ubuntu-Bold";
+}
+.head {
+    background-color: rgb(142, 226, 142);
+    height: 100%;
+    padding: 10px;
+}
+.hover {
+    transition: 0.4s; 
+}
+.hover:hover {
+    background-color: rgb(196, 243, 212);
+    transition: 0.4s; 
+}
+.project_creator {
+    margin-bottom: -10px;
+}
+.task_input {
+    border: 1px solid rgb(187, 181, 181);
+    border-radius: 5px;
+    width: 85%;
+    height: 40px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+.submit {
+    background-color: lightgreen;
+    padding: 9px;
+    border-radius: 6px;
+    transition: 0.4s;
+}
+.submit:hover {
+    background-color:rgb(26, 6, 136);
+    color: white;
+    transition: 0.4s;
+}
+
+
+.project_wrapper {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: 'Ubuntu-Bold';
+    border-bottom: 3px solid grey;
+    border-right: 3px solid grey;
+}
+.project {
+    color: black;
+    border: 1px solid rgb(228, 224, 224);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    font-family: 'Ubuntu-Bold';
+}
+
+.created_by {
+    margin-top: -12px;
+}
+
+
+
+/* Responsive */
+
+@media (max-width: 576px) {
+    .wrapper {
+        padding: 0px;
+        padding-top: 20px;
+    }
+}
+@media (min-width: 317px) {
+    .proj_header {
+        width: 100%;
+        display: inline-flex;
+        justify-content: space-between;
+    }
+}

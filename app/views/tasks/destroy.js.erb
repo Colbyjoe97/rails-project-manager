@@ -1,0 +1,4 @@
+$('.delete').bind('ajax:success', function() {
+    <%# $(this).closest('.card').fadeOut(500); %>
+    $(this).closest('.card').slideUp(500);
+})

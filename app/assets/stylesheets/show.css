@@ -1,0 +1,14 @@
+@font-face {
+    font-family: Ubuntu-Bold;
+    src:('/assets/Ubuntu-Bold')
+}
+.wrapper {
+    height: 100vh;
+}
+.projects {
+    background-color: white;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+}

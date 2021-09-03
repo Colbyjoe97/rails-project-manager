@@ -1,0 +1,36 @@
+<div class="wrapper">
+    <div class="container">
+        <%= link_to 'Back', projects_path, class: 'btn btn-secondary mb-2' %>
+        <div class="card">
+            <div class="head">
+                <h3>Editing project - "<%= @project.name %>"</h3>
+            </div>
+            <div class="card-body">
+                <% if flash[:errors] %>
+                    <% flash[:errors].each do |error| %>
+                        <b class="text-danger"><%= error %></b><br>
+                    <% end %>
+                <% end %>
+                <% if flash[:wrongUser] %>
+                    <b class="text-danger"><%= flash[:wrongUser] %></b>
+                <% end %>
+                <form action="/projects/<%=@project.id%>" method="post">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <input type="hidden" name="_method" value="patch">
+                    <h5>Project Name:</h5>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        <input class="input100" type="text" name="project[name]" value="<%= @project.name %>" id="name">
+                    </div>
+                    <h5>project Description:</h5>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        <textarea class="input100 p-2 pl-4 pt-3" type="text" name="project[description]" id="description"><%= @project.description %></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="button mt-4" id="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="d-flex justify-content-between mb-2">
+            <%= link_to 'My Profile', user_path(current_user), class: "btn btn-info" %>
+            <div class="text-right">
+                <%= link_to 'Logout', '/logout', class: "btn btn-danger" %>
+            </div>
+        </div>
+        <div class="project_wrapper">
+            <h3>Editing - <%= @user.first_name %> <%= @user.last_name %></h3>
+            <% if flash[:errors] %>
+                <div class="m-5">
+                    <% flash[:errors].each do |error| %>
+                        <b class="text-danger"><%= error %></b><br>
+                    <% end %>
+                </div>
+            <% end %>
+            <form class="login100-form validate-form p-l-55 p-r-55 p-t-30" action="/users/<%=@user.id%>" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="_method" value="patch">
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter first name">
+                    <input class="input100" type="text" name="user[first_name]" id="first_name" value="<%= @user.first_name %>">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter last name">
+                    <input class="input100" type="text" name="user[last_name]" id="last_name" value="<%= @user.last_name %>">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter email">
+                    <input class="input100" type="text" name="user[email]" id="email" value="<%= @user.email %>">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter password">
+                    <input class="input100" type="password" name="user[password]" id="password" placeholder="Password">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Confirm Password">
+                    <input class="input100" type="password" name="user[password_confirmation]" id="password_confirmation" placeholder="Confirm Password">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <br><div class="container-login100-form-btn">
+                    <button class="login100-form-btn p-b-" id="update">
+                        Update Profile
+                    </button>
+                </div><br>
+            </form>
+        </div>
+    </div>
+</div>

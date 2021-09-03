@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="d-flex justify-content-between mb-2">
+                <%= link_to 'My Profile', user_path(current_user), class: "btn btn-info" %>
+                <div class="text-right">
+                    <%= link_to 'Edit Profile', edit_user_path(current_user), class: "btn btn-warning" %>
+                    <%= link_to 'Logout', '/logout', class: "btn btn-danger" %>
+                </div>
+            </div>
+            <div class="project_wrapper">
+                <h2 class="card-title proj_header">
+                    <span>All Projects</span>
+                    <%= link_to 'New Project', new_project_path, class: 'btn btn-primary' %>
+                </h2>
+                <% @projects.each do |project| %>
+                <%= link_to project, class: 'text-decoration-none' do %>
+                    <div class="project hover">
+                        <span class="badge badge-<%=project.badge_color%>"><%=project.status%></span>
+                        <small>
+                            <span><%= project.percent_complete %>% complete</span>
+                            <span>(<%= project.total_complete %>/<%= project.total_tasks %>)</span>
+                            <p class="project_creator mb-2">Created by <%= project.user.first_name %></p>
+                        </small>
+                        <h3><%= project.name %></h3>
+                        <p class="pl-5 text-secondary"><%= project.description %></p>
+                    </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+        <div class="bottom"></div>
+    </div>
+</body>
+</html>
