@@ -14,4 +14,10 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :user_check
+
+  def find_user
+      @user = User.find_by(id: params[:id])
+      redirect_to user_path(current_user.id) unless @user
+  end
+  helper_method :find_user
 end

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :validate_user, only: [:edit, :update]
   before_action :user_check, except: [:index, :new, :login, :create]
+  before_action :find_user, only: [:show]
 
   def index
   end
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by(params[:id])
     @user.update(user_params)
     if @user.valid?
       @user.save
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     @projects = Project.where(user: @user)
   end
 
@@ -56,4 +57,5 @@ class UsersController < ApplicationController
       redirect_to edit_user_path current_user
     end
   end
+
 end
